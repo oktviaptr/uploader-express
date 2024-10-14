@@ -11,6 +11,7 @@ app.use(
       const allowedOrigins = [
         "http://localhost:5173",
         "https://in-sekuritas.com",
+        "https://investindo-uploader-express.vercel.app/"
       ];
 
       // Allow requests with no origin (like mobile apps or curl requests)
