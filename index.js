@@ -40,7 +40,7 @@ app.use((req, res, next) => {
   if (
     ip === "103.109.193.242" ||
     host.includes(allowedDNS) ||
-    host.includes("localhost") || ip === '202.72.220.58'
+    host.includes("localhost") || ip === '202.72.220.58' || ip === '103.136.59.185'
   ) {
     next();
   } else {
