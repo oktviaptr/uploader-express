@@ -10,8 +10,7 @@ app.use(
       // Allowed origins (local development and domain)
       const allowedOrigins = [
         "http://localhost:5173",
-        "https://in-sekuritas.com",
-        "https://investindo-uploader-express.vercel.app"
+        "https://oktavia-uploader-express.vercel.app"
       ];
 
       // Allow requests with no origin (like mobile apps or curl requests)
@@ -26,31 +25,6 @@ app.use(
   })
 );
 
-app.use((req, res, next) => {
-  const allowedDNS = "in-sekuritas.com";
-  const host = req.get("host");
-  const ip =
-    req.headers["cf-connecting-ip"] ||
-    req.headers["x-real-ip"] ||
-    req.headers["x-forwarded-for"] ||
-    req.socket.remoteAddress ||
-    "";
-
-  console.log(ip);
-  if (
-    ip === "103.109.193.242" ||
-    host.includes(allowedDNS) ||
-    host.includes("localhost") || ip === '202.72.220.58' || ip === '103.136.59.185'
-  ) {
-    next();
-  } else {
-    res
-      .status(403)
-      .send(
-        "Forbidden Access: unknown user, only author can access this website!"
-      ); // Deny access
-  }
-});
 
 // Run and render UI to /
 app.get("/", (req, res) => {
